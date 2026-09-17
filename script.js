@@ -42,3 +42,29 @@ document.querySelectorAll(".menu-btn").forEach(button => {
     `;
   });
 });
+const themeToggle = document.getElementById("themeToggle");
+
+// Oldingi tanlangan rejimni tekshirish
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeToggle.textContent = "☀️ Light mode";
+}
+
+// Tugma bosilganda rejimni almashtirish
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+
+    if (isDark) {
+      themeToggle.textContent = "☀️ Light mode";
+      localStorage.setItem("theme", "dark");
+    } else {
+      themeToggle.textContent = "🌙 Dark mode";
+      localStorage.setItem("theme", "light");
+    }
+  });
+}
