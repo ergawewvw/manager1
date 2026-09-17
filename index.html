@@ -6,7 +6,6 @@
 
   <title>Manager1 — Task Manager</title>
 
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -26,353 +25,214 @@
         </div>
       </div>
 
-      <div class="menu-title">MENU</div>
+      <p class="menu-title">MENU</p>
 
-      <nav class="sidebar-menu">
+      <nav class="menu">
 
-        <button
-          class="menu-btn active"
-          data-page="dashboard"
-          type="button"
-        >
-          <span class="menu-icon">⌂</span>
-          <span>Dashboard</span>
+        <button class="menu-btn active" data-page="dashboard">
+          <span>⌂</span>
+          Dashboard
         </button>
 
-        <button
-          class="menu-btn"
-          data-page="tasks"
-          type="button"
-        >
-          <span class="menu-icon">✓</span>
-          <span>My Tasks</span>
+        <button class="menu-btn" data-page="tasks">
+          <span>✓</span>
+          My Tasks
         </button>
 
-        <button
-          class="menu-btn"
-          data-page="calendar"
-          type="button"
-        >
-          <span class="menu-icon">□</span>
-          <span>Calendar</span>
+        <button class="menu-btn" data-page="calendar">
+          <span>□</span>
+          Calendar
         </button>
 
-        <button
-          class="menu-btn"
-          data-page="analytics"
-          type="button"
-        >
-          <span class="menu-icon">◇</span>
-          <span>Analytics</span>
+        <button class="menu-btn" data-page="analytics">
+          <span>◇</span>
+          Analytics
         </button>
 
       </nav>
 
-      <div class="menu-title workspace-title">
-        WORKSPACE
-      </div>
+      <p class="menu-title workspace-title">WORKSPACE</p>
 
-      <nav class="sidebar-menu">
+      <nav class="menu">
 
-        <button
-          class="menu-btn"
-          data-page="settings"
-          type="button"
-        >
-          <span class="menu-icon">⚙</span>
-          <span>Settings</span>
+        <button class="menu-btn" data-page="settings">
+          <span>⚙</span>
+          Settings
         </button>
 
       </nav>
 
       <div class="sidebar-bottom">
-        <div class="bottom-icon">✦</div>
-
+        <div>✦</div>
         <h3>Stay organized</h3>
-
-        <p>
-          Keep your work simple and productive.
-        </p>
+        <p>Keep your work simple and productive.</p>
       </div>
 
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
+    <!-- MAIN -->
+    <main class="main">
 
-      <!-- TOPBAR -->
       <header class="topbar">
 
-        <div class="topbar-left">
-
-          <p class="breadcrumb">
-            WORKSPACE / OVERVIEW
-          </p>
-
-          <h1 id="page-title">
-            Good morning, Xumoyun.
-          </h1>
-
-          <p class="subtitle">
-            Let's make today productive.
-          </p>
-
+        <div>
+          <p class="breadcrumb">WORKSPACE / OVERVIEW</p>
+          <h1 id="pageTitle">Good morning, Xumoyun.</h1>
+          <p class="subtitle">Let's make today productive.</p>
         </div>
 
-        <div class="topbar-right">
-
-          <button
-            id="themeToggle"
-            class="theme-btn"
-            type="button"
-          >
-            ☀️ Light mode
+        <div class="top-actions">
+          <button id="themeToggle" class="theme-btn">
+            🌙 Dark mode
           </button>
 
-          <div class="profile-circle">
-            X
-          </div>
-
+          <div class="profile">X</div>
         </div>
 
       </header>
 
       <!-- DASHBOARD -->
-      <section id="dashboard-content">
+      <section id="dashboardPage" class="page">
 
         <div class="section-heading">
 
           <div>
             <h2>Your productivity</h2>
-
-            <p>
-              Track your tasks and keep moving forward.
-            </p>
+            <p>Track your tasks and keep moving forward.</p>
           </div>
 
-          <button
-            class="primary-btn"
-            id="addTaskBtn"
-            type="button"
-          >
+          <button class="primary-btn" id="newTaskBtn">
             + New task
           </button>
 
         </div>
 
-        <!-- STATISTICS -->
-        <section class="stats-grid">
+        <!-- STATS -->
+        <div class="stats-grid">
 
           <div class="stat-card">
-
-            <div class="stat-card-top">
+            <div class="stat-top">
               <span>Total tasks</span>
-              <div class="stat-icon purple">▤</div>
+              <b class="stat-icon purple">▤</b>
             </div>
 
             <strong id="totalTasks">0</strong>
-
-            <p>
-              All your tasks
-            </p>
-
+            <p>All your tasks</p>
           </div>
 
           <div class="stat-card">
-
-            <div class="stat-card-top">
+            <div class="stat-top">
               <span>Completed</span>
-              <div class="stat-icon green">✓</div>
+              <b class="stat-icon green">✓</b>
             </div>
 
             <strong id="completedTasks">0</strong>
-
-            <p>
-              Tasks finished
-            </p>
-
+            <p>Tasks finished</p>
           </div>
 
           <div class="stat-card">
-
-            <div class="stat-card-top">
+            <div class="stat-top">
               <span>In progress</span>
-              <div class="stat-icon blue">◷</div>
+              <b class="stat-icon blue">◷</b>
             </div>
 
-            <strong id="inProgressTasks">0</strong>
-
-            <p>
-              Work in progress
-            </p>
-
+            <strong id="progressTasks">0</strong>
+            <p>Work in progress</p>
           </div>
 
           <div class="stat-card">
-
-            <div class="stat-card-top">
+            <div class="stat-top">
               <span>Pending</span>
-              <div class="stat-icon orange">!</div>
+              <b class="stat-icon orange">!</b>
             </div>
 
             <strong id="pendingTasks">0</strong>
-
-            <p>
-              Waiting to start
-            </p>
-
+            <p>Waiting to start</p>
           </div>
 
-        </section>
+        </div>
 
-        <!-- LOWER CARDS -->
-        <section class="dashboard-grid">
+        <!-- CARDS -->
+        <div class="dashboard-grid">
 
-          <!-- RECENT TASKS -->
           <div class="content-card">
 
             <div class="card-header">
-
               <div>
                 <h3>Recent tasks</h3>
-
-                <p>
-                  Your latest activities
-                </p>
+                <p>Your latest activities</p>
               </div>
 
-              <button
-                class="text-btn"
-                data-page="tasks"
-                type="button"
-              >
+              <button class="text-btn" data-page="tasks">
                 View all →
               </button>
-
             </div>
 
-            <div id="taskList" class="task-list">
+            <div id="recentTasks" class="task-list">
 
               <div class="empty-state">
+                <div class="empty-icon">✓</div>
+                <h3>No tasks yet</h3>
+                <p>Create your first task to get started.</p>
 
-                <div class="empty-icon">
-                  ✓
-                </div>
-
-                <h3>
-                  No tasks yet
-                </h3>
-
-                <p>
-                  Create your first task to get started.
-                </p>
-
-                <button
-                  class="primary-btn"
-                  id="createTaskBtn"
-                  type="button"
-                >
+                <button class="primary-btn" id="createTaskBtn">
                   + Create task
                 </button>
-
               </div>
 
             </div>
 
           </div>
 
-          <!-- OVERVIEW -->
-          <div class="content-card overview-card">
+          <div class="content-card">
 
             <div class="card-header">
-
               <div>
                 <h3>Overview</h3>
-
-                <p>
-                  Your progress
-                </p>
+                <p>Your progress</p>
               </div>
-
             </div>
 
             <div class="progress-circle">
+              <strong id="progressPercent">0%</strong>
+              <span>Completed</span>
+            </div>
 
-              <strong id="progressPercent">
-                0%
-              </strong>
-
+            <div class="overview-row">
               <span>
+                <i class="dot completed-dot"></i>
                 Completed
               </span>
 
+              <b id="overviewCompleted">0</b>
             </div>
 
-            <div class="progress-info">
+            <div class="overview-row">
+              <span>
+                <i class="dot pending-dot"></i>
+                Pending
+              </span>
 
-              <div>
-
-                <span>
-                  <i class="legend-dot completed-dot"></i>
-                  Completed
-                </span>
-
-                <b id="overviewCompleted">
-                  0
-                </b>
-
-              </div>
-
-              <div>
-
-                <span>
-                  <i class="legend-dot pending-dot"></i>
-                  Pending
-                </span>
-
-                <b id="overviewPending">
-                  0
-                </b>
-
-              </div>
-
+              <b id="overviewPending">0</b>
             </div>
 
           </div>
 
-        </section>
+        </div>
 
       </section>
 
-      <!-- DYNAMIC PANEL -->
-      <section
-        id="panel"
-        class="panel"
-        aria-live="polite"
-      >
+      <!-- DYNAMIC CONTENT -->
+      <section id="dynamicPage" class="page hidden"></section>
 
-        <h3>
-          Dashboard
-        </h3>
-
-        <p>
-          Kerakli bo‘limni tanlang.
-        </p>
-
-      </section>
-
-      <!-- FOOTER -->
       <footer>
-        <p>
-          Manager1 • Task workspace
-        </p>
+        Manager1 • Task workspace
       </footer>
 
     </main>
 
   </div>
 
-  <!-- JAVASCRIPT -->
   <script src="./script.js"></script>
 
 </body>
