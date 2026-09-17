@@ -7,7 +7,7 @@
   <title>Manager1 — Task Manager</title>
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -30,33 +30,55 @@
 
       <nav class="sidebar-menu">
 
-        <button class="menu-btn active" data-page="dashboard" type="button">
+        <button
+          class="menu-btn active"
+          data-page="dashboard"
+          type="button"
+        >
           <span class="menu-icon">⌂</span>
           <span>Dashboard</span>
         </button>
 
-        <button class="menu-btn" data-page="tasks" type="button">
+        <button
+          class="menu-btn"
+          data-page="tasks"
+          type="button"
+        >
           <span class="menu-icon">✓</span>
           <span>My Tasks</span>
         </button>
 
-        <button class="menu-btn" data-page="calendar" type="button">
+        <button
+          class="menu-btn"
+          data-page="calendar"
+          type="button"
+        >
           <span class="menu-icon">□</span>
           <span>Calendar</span>
         </button>
 
-        <button class="menu-btn" data-page="analytics" type="button">
+        <button
+          class="menu-btn"
+          data-page="analytics"
+          type="button"
+        >
           <span class="menu-icon">◇</span>
           <span>Analytics</span>
         </button>
 
       </nav>
 
-      <div class="menu-title workspace-title">WORKSPACE</div>
+      <div class="menu-title workspace-title">
+        WORKSPACE
+      </div>
 
       <nav class="sidebar-menu">
 
-        <button class="menu-btn" data-page="settings" type="button">
+        <button
+          class="menu-btn"
+          data-page="settings"
+          type="button"
+        >
           <span class="menu-icon">⚙</span>
           <span>Settings</span>
         </button>
@@ -65,8 +87,12 @@
 
       <div class="sidebar-bottom">
         <div class="bottom-icon">✦</div>
+
         <h3>Stay organized</h3>
-        <p>Keep your work simple and productive.</p>
+
+        <p>
+          Keep your work simple and productive.
+        </p>
       </div>
 
     </aside>
@@ -78,22 +104,34 @@
       <header class="topbar">
 
         <div class="topbar-left">
-          <p class="breadcrumb">WORKSPACE / OVERVIEW</p>
 
-          <h1 id="page-title">Good morning, Xumoyun.</h1>
+          <p class="breadcrumb">
+            WORKSPACE / OVERVIEW
+          </p>
+
+          <h1 id="page-title">
+            Good morning, Xumoyun.
+          </h1>
 
           <p class="subtitle">
             Let's make today productive.
           </p>
+
         </div>
 
         <div class="topbar-right">
 
-          <button id="themeToggle" class="theme-btn" type="button">
+          <button
+            id="themeToggle"
+            class="theme-btn"
+            type="button"
+          >
             ☀️ Light mode
           </button>
 
-          <div class="profile-circle">X</div>
+          <div class="profile-circle">
+            X
+          </div>
 
         </div>
 
@@ -103,125 +141,201 @@
       <section id="dashboard-content">
 
         <div class="section-heading">
+
           <div>
             <h2>Your productivity</h2>
-            <p>Track your tasks and keep moving forward.</p>
+
+            <p>
+              Track your tasks and keep moving forward.
+            </p>
           </div>
 
-          <button class="primary-btn" id="addTaskBtn" type="button">
+          <button
+            class="primary-btn"
+            id="addTaskBtn"
+            type="button"
+          >
             + New task
           </button>
+
         </div>
 
         <!-- STATISTICS -->
         <section class="stats-grid">
 
           <div class="stat-card">
+
             <div class="stat-card-top">
               <span>Total tasks</span>
               <div class="stat-icon purple">▤</div>
             </div>
 
             <strong id="totalTasks">0</strong>
-            <p>All your tasks</p>
+
+            <p>
+              All your tasks
+            </p>
+
           </div>
 
           <div class="stat-card">
+
             <div class="stat-card-top">
               <span>Completed</span>
               <div class="stat-icon green">✓</div>
             </div>
 
             <strong id="completedTasks">0</strong>
-            <p>Tasks finished</p>
+
+            <p>
+              Tasks finished
+            </p>
+
           </div>
 
           <div class="stat-card">
+
             <div class="stat-card-top">
               <span>In progress</span>
               <div class="stat-icon blue">◷</div>
             </div>
 
             <strong id="inProgressTasks">0</strong>
-            <p>Work in progress</p>
+
+            <p>
+              Work in progress
+            </p>
+
           </div>
 
           <div class="stat-card">
+
             <div class="stat-card-top">
               <span>Pending</span>
               <div class="stat-icon orange">!</div>
             </div>
 
             <strong id="pendingTasks">0</strong>
-            <p>Waiting to start</p>
+
+            <p>
+              Waiting to start
+            </p>
+
           </div>
 
         </section>
 
-        <!-- LOWER DASHBOARD -->
+        <!-- LOWER CARDS -->
         <section class="dashboard-grid">
 
+          <!-- RECENT TASKS -->
           <div class="content-card">
 
             <div class="card-header">
+
               <div>
                 <h3>Recent tasks</h3>
-                <p>Your latest activities</p>
+
+                <p>
+                  Your latest activities
+                </p>
               </div>
 
-              <button class="text-btn" data-page="tasks" type="button">
+              <button
+                class="text-btn"
+                data-page="tasks"
+                type="button"
+              >
                 View all →
               </button>
+
             </div>
 
             <div id="taskList" class="task-list">
 
               <div class="empty-state">
-                <div class="empty-icon">✓</div>
-                <h3>No tasks yet</h3>
-                <p>Create your first task to get started.</p>
 
-                <button class="primary-btn" id="createTaskBtn" type="button">
+                <div class="empty-icon">
+                  ✓
+                </div>
+
+                <h3>
+                  No tasks yet
+                </h3>
+
+                <p>
+                  Create your first task to get started.
+                </p>
+
+                <button
+                  class="primary-btn"
+                  id="createTaskBtn"
+                  type="button"
+                >
                   + Create task
                 </button>
+
               </div>
 
             </div>
 
           </div>
 
+          <!-- OVERVIEW -->
           <div class="content-card overview-card">
 
             <div class="card-header">
+
               <div>
                 <h3>Overview</h3>
-                <p>Your progress</p>
+
+                <p>
+                  Your progress
+                </p>
               </div>
+
             </div>
 
             <div class="progress-circle">
-              <strong id="progressPercent">0%</strong>
-              <span>Completed</span>
+
+              <strong id="progressPercent">
+                0%
+              </strong>
+
+              <span>
+                Completed
+              </span>
+
             </div>
 
             <div class="progress-info">
+
               <div>
+
                 <span>
                   <i class="legend-dot completed-dot"></i>
                   Completed
                 </span>
 
-                <b id="overviewCompleted">0</b>
+                <b id="overviewCompleted">
+                  0
+                </b>
+
               </div>
 
               <div>
+
                 <span>
                   <i class="legend-dot pending-dot"></i>
                   Pending
                 </span>
 
-                <b id="overviewPending">0</b>
+                <b id="overviewPending">
+                  0
+                </b>
+
               </div>
+
             </div>
 
           </div>
@@ -231,22 +345,35 @@
       </section>
 
       <!-- DYNAMIC PANEL -->
-      <section id="panel" class="panel">
+      <section
+        id="panel"
+        class="panel"
+        aria-live="polite"
+      >
 
-        <h3>Dashboard</h3>
-        <p>Kerakli bo‘limni tanlang.</p>
+        <h3>
+          Dashboard
+        </h3>
+
+        <p>
+          Kerakli bo‘limni tanlang.
+        </p>
 
       </section>
 
+      <!-- FOOTER -->
       <footer>
-        <p>Manager1 • Task workspace</p>
+        <p>
+          Manager1 • Task workspace
+        </p>
       </footer>
 
     </main>
 
   </div>
 
-  <script src="script.js"></script>
+  <!-- JAVASCRIPT -->
+  <script src="./script.js"></script>
 
 </body>
 </html>
