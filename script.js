@@ -6,65 +6,139 @@ if (tg) {
 }
 
 const panel = document.getElementById("panel");
+const themeToggle = document.getElementById("themeToggle");
 
 const pages = {
-  publish: {
-    title: "📤 Post joylash",
-    text: "Bu yerda yangi post yozish va kanalga yuborish formasi bo‘ladi."
-  },
+  publish: `
+    <h3>📤 Post joylash</h3>
+    <p>Yangi post yozing va kanalga yuboring.</p>
 
-  posts: {
-    title: "📝 Postlar",
-    text: "Bu yerda kanal postlarini ko‘rish, tahrirlash va o‘chirish bo‘ladi."
-  },
+    <input id="postTitle" class="form-input" placeholder="Post sarlavhasi">
 
-  stats: {
-    title: "📊 Statistika",
-    text: "Bu yerda obunachilar, ko‘rishlar va boshqa kanal ko‘rsatkichlari chiqadi."
-  },
+    <textarea id="postText" class="form-input" placeholder="Post matni"></textarea>
 
-  settings: {
-    title: "⚙️ Sozlamalar",
-    text: "Bu yerda bot va kanal sozlamalari bo‘ladi."
-  }
+    <button id="sendPost" class="primary-btn">
+      📤 Post yuborish
+    </button>
+
+    <p id="postMessage"></p>
+  `,
+
+  posts: `
+    <h3>📝 Postlar</h3>
+    <p>Bu yerda kanal postlarini boshqarishingiz mumkin.</p>
+
+    <div class="post-box">
+      <b>Hozircha postlar mavjud emas</b>
+      <p>Yangi post qo‘shish uchun “Post joylash” tugmasini bosing.</p>
+    </div>
+  `,
+
+  stats: `
+    <h3>📊 Statistika</h3>
+
+    <div class="stat-details">
+      <p>👥 Obunachilar: <b id="statSubscribers">—</b></p>
+      <p>📝 Postlar: <b id="statPosts">—</b></p>
+      <p>📈 Holat: <b>Faol</b></p>
+    </div>
+  `,
+
+  settings: `
+    <h3>⚙️ Sozlamalar</h3>
+
+    <label for="channelName">Kanal nomi</label>
+    <input
+      id="channelName"
+      class="form-input"
+      value="Nothing Forever"
+    >
+
+    <label for="channelUsername">Kanal username</label>
+    <input
+      id="channelUsername"
+      class="form-input"
+      value="@nothing_ls_forever"
+    >
+
+    <button id="saveSettings" class="primary-btn">
+      💾 Saqlash
+    </button>
+
+    <p id="settingsMessage"></p>
+  `
 };
 
 document.querySelectorAll(".menu-btn").forEach(button => {
   button.addEventListener("click", () => {
     const pageName = button.dataset.page;
-    const page = pages[pageName];
 
-    if (!page) return;
+    if (!pages[pageName]) return;
 
-    panel.innerHTML = `
-      <h3>${page.title}</h3>
-      <p>${page.text}</p>
-    `;
+    document.querySelectorAll(".menu-btn").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    panel.classList.add("panel-open");
+
+    panel.innerHTML = pages[pageName];
+
+    if (pageName === "stats") {
+      document.getElementById("statSubscribers").textContent =
+        document.getElementById("subscribers").textContent;
+
+      document.getElementById("statPosts").textContent =
+        document.getElementById("posts").textContent;
+    }
+
+    if (pageName === "publish") {
+      document.getElementById("sendPost").addEventListener("click", () => {
+        const title = document.getElementById("postTitle").value.trim();
+        const text = document.getElementById("postText").value.trim();
+        const message = document.getElementById("postMessage");
+
+        if (!title || !text) {
+          message.textContent = "Iltimos, barcha joylarni to‘ldiring.";
+          return;
+        }
+
+        message.textContent = "Post tayyorlandi. Telegram bot ulanishi kerak.";
+      });
+    }
+
+    if (pageName === "settings") {
+      document.getElementById("saveSettings").addEventListener("click", () => {
+        document.getElementById("settingsMessage").textContent =
+          "Sozlamalar saqlandi!";
+      });
+    }
   });
 });
-const themeToggle = document.getElementById("themeToggle");
 
-// Oldingi tanlangan rejimni tekshirish
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "dark") {
-  document.body.classList.add("dark-mode");
-  themeToggle.textContent = "☀️ Light mode";
-}
-
-// Tugma bosilganda rejimni almashtirish
+// Dark mode
 if (themeToggle) {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "☀️ Light mode";
+  }
+
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
-    const isDark = document.body.classList.contains("dark-mode");
+    const darkMode =
+      document.body.classList.contains("dark-mode");
 
-    if (isDark) {
-      themeToggle.textContent = "☀️ Light mode";
-      localStorage.setItem("theme", "dark");
-    } else {
-      themeToggle.textContent = "🌙 Dark mode";
-      localStorage.setItem("theme", "light");
-    }
+    themeToggle.textContent = darkMode
+      ? "☀️ Light mode"
+      : "🌙 Dark mode";
+
+    localStorage.setItem(
+      "theme",
+      darkMode ? "dark" : "light"
+    );
   });
 }
