@@ -8,6 +8,7 @@
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="app">
@@ -17,11 +18,19 @@
         <p class="small">ADMIN DASHBOARD</p>
         <h1>Channel Manager</h1>
       </div>
-      <div class="status">● Online</div>
+
+      <div class="top-actions">
+        <button id="themeToggle" class="theme-btn" type="button">
+          🌙 Dark mode
+        </button>
+
+        <div class="status">● Online</div>
+      </div>
     </header>
 
     <section class="channel-card">
       <div class="channel-icon">N</div>
+
       <div>
         <h2>Nothing Forever</h2>
         <p>@nothing_ls_forever</p>
@@ -43,29 +52,31 @@
     <h3>Boshqaruv</h3>
 
     <div class="menu-grid">
-      <button class="menu-btn" data-page="publish">
+
+      <button class="menu-btn" data-page="publish" type="button">
         <span>📤</span>
         <b>Post joylash</b>
         <small>Yangi post yuborish</small>
       </button>
 
-      <button class="menu-btn" data-page="posts">
+      <button class="menu-btn" data-page="posts" type="button">
         <span>📝</span>
         <b>Postlar</b>
         <small>Tahrirlash va o‘chirish</small>
       </button>
 
-      <button class="menu-btn" data-page="stats">
+      <button class="menu-btn" data-page="stats" type="button">
         <span>📊</span>
         <b>Statistika</b>
         <small>Kanal ko‘rsatkichlari</small>
       </button>
 
-      <button class="menu-btn" data-page="settings">
+      <button class="menu-btn" data-page="settings" type="button">
         <span>⚙️</span>
         <b>Sozlamalar</b>
         <small>Bot va kanal</small>
       </button>
+
     </div>
 
     <section id="panel" class="panel">
@@ -80,5 +91,6 @@
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
