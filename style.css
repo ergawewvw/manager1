@@ -179,3 +179,73 @@ footer {
     padding: 15px;
   }
 }
+/* Dark mode tugmasi */
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-btn {
+  border: 1px solid #ddd;
+  background: #ffffff;
+  color: #172033;
+  padding: 10px 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Dark mode */
+body.dark-mode {
+  background: #10131c;
+  color: #f5f7ff;
+}
+
+body.dark-mode .app {
+  background: #10131c;
+}
+
+body.dark-mode .topbar,
+body.dark-mode .channel-card,
+body.dark-mode .stat-card,
+body.dark-mode .panel {
+  background: #191e2b;
+  border-color: #303747;
+  color: #f5f7ff;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode b,
+body.dark-mode small {
+  color: #f5f7ff;
+}
+
+body.dark-mode .menu-btn {
+  background: #191e2b;
+  border-color: #303747;
+  color: #f5f7ff;
+}
+
+body.dark-mode .menu-btn:hover {
+  background: #292f42;
+}
+
+body.dark-mode .theme-btn {
+  background: #292f42;
+  border-color: #454d63;
+  color: #ffffff;
+}
+
+body.dark-mode footer {
+  color: #b7bfd2;
+}
