@@ -1,51 +1,44 @@
-const menuButtons = document.querySelectorAll(".menu-btn");
+const tg = window.Telegram?.WebApp;
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+}
+
 const panel = document.getElementById("panel");
 
 const pages = {
-  dashboard: {
-    title: "Dashboard",
-    text: "Welcome to your task manager."
+  publish: {
+    title: "📤 Post joylash",
+    text: "Bu yerda yangi post yozish va kanalga yuborish formasi bo‘ladi."
   },
 
-  tasks: {
-    title: "My Tasks",
-    text: "Bu yerda yangi task qo‘shish va tasklarni boshqarish mumkin."
+  posts: {
+    title: "📝 Postlar",
+    text: "Bu yerda kanal postlarini ko‘rish, tahrirlash va o‘chirish bo‘ladi."
   },
 
-  calendar: {
-    title: "Calendar",
-    text: "Bu yerda tasklar uchun kalendar bo‘ladi."
-  },
-
-  analytics: {
-    title: "Analytics",
-    text: "Bu yerda bajarilgan va bajarilmagan tasklar statistikasi chiqadi."
+  stats: {
+    title: "📊 Statistika",
+    text: "Bu yerda obunachilar, ko‘rishlar va boshqa kanal ko‘rsatkichlari chiqadi."
   },
 
   settings: {
-    title: "Settings",
-    text: "Bu yerda sozlamalarni o‘zgartirish mumkin."
+    title: "⚙️ Sozlamalar",
+    text: "Bu yerda bot va kanal sozlamalari bo‘ladi."
   }
 };
 
-menuButtons.forEach(button => {
+document.querySelectorAll(".menu-btn").forEach(button => {
   button.addEventListener("click", () => {
     const pageName = button.dataset.page;
     const page = pages[pageName];
 
     if (!page) return;
 
-    menuButtons.forEach(item => {
-      item.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
     panel.innerHTML = `
-      <div class="page-heading">
-        <h2>${page.title}</h2>
-        <p>${page.text}</p>
-      </div>
+      <h3>${page.title}</h3>
+      <p>${page.text}</p>
     `;
   });
 });
